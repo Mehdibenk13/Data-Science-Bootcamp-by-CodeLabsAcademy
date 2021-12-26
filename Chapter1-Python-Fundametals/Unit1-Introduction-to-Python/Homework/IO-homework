@@ -1,0 +1,50 @@
+# 1. We open our file in read mode and store its content in the 'names' variable
+
+  file = open('./names_file.txt','r')
+  names = file.read()
+  print('Content of the names file :\n',names)
+  file.close()
+
+
+# 2. We add our list of new names to the file by opening it with read/write access in append mode to avoid overwrinting our old data
+
+  file = open('./names_file.txt','a+')
+  new_names = ['Clara Luz', 'John Ronald', 'Britney Jo']
+  for new_name in new_names :
+      file.write(new_name + '\n')
+  file.close()
+
+
+# 3. Printing the n first lines of the file
+
+  n =int(input('how many of the first/last lines do you want to print ? '))
+  file= open('./names_file.txt','r')
+  file_lines = file.readlines()
+
+  print('\nthe {} first lines of the file : '.format(n))
+  for line in file_lines[:n] :
+      print(line)
+
+# 4. Printing the 6 last lines of the file  
+
+  print('\nthe {} last lines of the file : '.format(n))
+  for line in file_lines[-n:] :
+      print(line)
+  file.close()
+
+# 5. Check if the name 'Emma Sterling', 'Mehdi Benk' are in the file
+  file= open('./names_file.txt','r')
+  content= file.read()
+
+  print('\nthe name Emma Sterling is in the file : ', 'Emma' in content ) 
+  print('the name Mehdi Benk is in the file : ', 'Mehdi' in content )
+  file.close()
+
+
+# 6. Generating the txt files, 
+#    we will use ascii code to name files from A to Z
+#    files will be created in a folder that we named 'generated files'
+
+  list= [chr(i) for i in range(65,91)]
+  for alphabet in list :
+      f= open('./generated_files/{}.txt'.format(alphabet),'w+')
