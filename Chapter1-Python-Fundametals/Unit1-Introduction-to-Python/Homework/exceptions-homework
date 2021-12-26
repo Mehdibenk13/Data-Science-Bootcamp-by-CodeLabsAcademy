@@ -1,0 +1,7 @@
+try :
+    a= 12
+    s= 'hello'
+    print(a+s)
+    
+except TypeError as error:
+    print('failed, error occured : ', error)
